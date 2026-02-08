@@ -3,7 +3,7 @@ function ProductCard({ item, quantity, addToCart, decreaseQty, deleteFromCart })
 
   return (
     <div className="card">
-      <img src={item.image} alt={item.name} />
+    <img src={item.image} alt={item.name} className="product-img" />
       <h3>{item.name}</h3>
       <p className="price">₹{item.price}</p>
 
