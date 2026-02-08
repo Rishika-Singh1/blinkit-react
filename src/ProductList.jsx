@@ -14,26 +14,21 @@ const products = [
   { id: 11, name: "Oil", price: 150, image: import.meta.env.BASE_URL + "images/oil.jpg" },
 ];
 
-function ProductCard({ item, quantity, addToCart, decreaseQty, deleteFromCart }) {
+function ProductList({ cart, addToCart, decreaseQty, deleteFromCart }) {
   return (
-    <div className="card">
-      <img src={item.image} alt={item.name} />
-      <h3>{item.name}</h3>
-      <p>₹{item.price}</p>
-
-      {quantity === 0 ? (
-        <button onClick={() => addToCart(item)}>Add</button>
-      ) : (
-        <div>
-          <button onClick={() => decreaseQty(item)}>-</button>
-          <span>{quantity}</span>
-          <button onClick={() => addToCart(item)}>+</button>
-          <button onClick={() => deleteFromCart(item)}>Delete</button>
-        </div>
-      )}
+    <div className="products">
+      {products.map((item) => (
+        <ProductCard
+          key={item.id}
+          item={item}
+          quantity={cart[item.id] || 0}
+          addToCart={addToCart}
+          decreaseQty={decreaseQty}
+          deleteFromCart={deleteFromCart}
+        />
+      ))}
     </div>
   );
 }
 
-export default ProductCard;
-
+export default ProductList;
