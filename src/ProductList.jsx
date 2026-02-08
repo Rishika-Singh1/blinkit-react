@@ -10,9 +10,9 @@ const products = [
   { id: 7, name: "Rice", price: 80, image: import.meta.env.BASE_URL + "images/rice.jpg" },
   { id: 8, name: "Sugar", price: 45, image: import.meta.env.BASE_URL + "images/sugar.jpg" },
   { id: 9, name: "Tea", price: 90, image: import.meta.env.BASE_URL + "images/tea.jpg" },
-  { id: 10, name: "Oil", price: 150, image: import.meta.env.BASE_URL + "images/oil.jpg" },
+  { id: 10, name: "Biscuits", price: 30, image: import.meta.env.BASE_URL + "images/biscuits.jpg" },
+  { id: 11, name: "Oil", price: 150, image: import.meta.env.BASE_URL + "images/oil.jpg" },
 ];
-
 
 function ProductList({ cart, addToCart, decreaseQty, deleteFromCart }) {
   return (
@@ -20,7 +20,7 @@ function ProductList({ cart, addToCart, decreaseQty, deleteFromCart }) {
       {products.map((item) => (
         <ProductCard
           key={item.id}
-          item={item}                 // 👈 pass as "item"
+          item={item}
           quantity={cart[item.id] || 0}
           addToCart={addToCart}
           decreaseQty={decreaseQty}
@@ -32,3 +32,4 @@ function ProductList({ cart, addToCart, decreaseQty, deleteFromCart }) {
 }
 
 export default ProductList;
+
